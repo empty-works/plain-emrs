@@ -25,11 +25,11 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
-			.antMatchers("/").hasRole("EMPLOYEE")
-			.antMatchers("/medical-staff/**").hasRole("DOCTOR")
-			.antMatchers("/medical-staff/**").hasRole("NURSE")
+			.antMatchers("/").hasRole("NON_MEDICAL_STAFF")
 			.antMatchers("/systems/**").hasRole("ADMIN")
-			.antMatchers("/systems/**").hasRole("ADMIN")
+			.antMatchers("/medical-staff/**").hasAnyRole("DOCTOR", "NURSE")
+			.antMatchers("/allied-staff/**").hasRole("ALLIED_MEDICAL_STAFF")
+			.antMatchers("/non-employees/**").hasAnyRole("PROVIDER", "GOVERNMENT")
 			.and()
 			.formLogin()
 				.loginPage("/showMyLoginPage") // show custom form at the request mapping "/showMyLoginPage"
