@@ -1,4 +1,4 @@
-package com.empty_works.plainemrs.conf;
+package com.empty_works.plainemrs.config;
 
 import java.beans.PropertyVetoException;
 import java.util.logging.Logger;
