@@ -11,6 +11,7 @@
 	</head>
 
 	<body>
+		<h2>Plain EMRS Login</h2>
 
 	</body>
 </html>
