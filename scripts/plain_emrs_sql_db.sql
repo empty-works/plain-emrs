@@ -469,6 +469,17 @@ DEFAULT CHARACTER SET = utf8mb4
 COLLATE = utf8mb4_unicode_520_ci;
 
 
+-- NOTE: the passwords are encrypted using bcrypt
+-- Default password is 123
+INSERT INTO `people`
+VALUES
+(0, 'The', '', 'Admin', '1 Admin Ave.', 'City', 'State', 'Country', '999-999', '1993-01-23');
+
+INSERT INTO `users`
+VALUES
+(0, 0, 'admin_user', '{bcrypt}$2y$10$MvoQQPN5VNP/h77trNddgeTg2LHjDuvznCA9XsqCo9O6s/jCjoDdu', 'admin_user@gmail.com', curdate(), 1);
+
+
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
