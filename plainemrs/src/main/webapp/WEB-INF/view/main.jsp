@@ -11,7 +11,30 @@
 	</head>
 
 	<body>
-		<h2>Plain EMRS Login</h2>
+		<h2>Plain EMRS Home</h2>
+		
+		<hr>
+		
+		<p>
+			Welcome to Plain EMRS!
+		</p>
+		
+		<hr>
+		
+		<p>
+			User: <security:authentication property="principal.username" />
+			<br><br>
+			Role(s): <security:authentication property="principal.authorities" />
+		</p>		
+		
+		<hr>
+		
+		<!-- Add a logout button -->	
+		<form:form action="${pageContext.request.contextPath }/logout" method="POST">
+			
+			<input type="submit" value="Logout" />
+			
+		</form:form>
 
 	</body>
 </html>
