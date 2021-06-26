@@ -9,7 +9,7 @@ public class MainController {
 	@GetMapping("/")
 	public String showHome() {
 		
-		return "home";
+		return "main";
 	}
 	
 	// Add request mapping for systems
