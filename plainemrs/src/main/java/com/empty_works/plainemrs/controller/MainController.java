@@ -2,11 +2,12 @@ package com.empty_works.plainemrs.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class MainController {
 
-	@GetMapping("/")
+	@RequestMapping(value = "/")
 	public String showHome() {
 		
 		return "home";
