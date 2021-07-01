@@ -33,7 +33,7 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/medical-staff/**").hasAnyRole("DOCTOR", "NURSE")
 			.antMatchers("/allied-staff/**").hasRole("ALLIED_MEDICAL_STAFF")
 			.antMatchers("/non-employees/**").hasAnyRole("PROVIDER", "GOVERNMENT", "FACILITY")
-			.antMatchers("/").permitAll()
+			.antMatchers("/").hasRole("NON_MEDICAL_STAFF")
 			.and()
 			.formLogin()
 				.loginPage("/show-login-page") // show custom form at the request mapping "/show-login-page"
