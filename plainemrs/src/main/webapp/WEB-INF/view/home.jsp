@@ -22,18 +22,21 @@
 		
 		<hr>
 		<p>
+		<!--  
 			User: <security:authentication property="principal.username" />
 			<br><br>
 			Role(s): <security:authentication property="principal.authorities" />
+-->
 		</p>
 		<hr>
 		
 		<!-- Add a logout button -->	
+		<!--  
 		<form:form action="${pageContext.request.contextPath }/logout" method="POST">
 			
 			<input type="submit" value="Logout" />
 			
 		</form:form>
-
+-->
 	</body>
 </html>

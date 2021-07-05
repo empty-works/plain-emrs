@@ -5,9 +5,10 @@ import javax.sql.DataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.User;
+import org.springframework.security.core.userdetails.User.UserBuilder;
 
 @Configuration
 @EnableWebSecurity
@@ -21,10 +22,21 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
+		/*
 		// Use JDBC authentication
 		auth.jdbcAuthentication().dataSource(securityDataSource);
+		*/
+		
+		// Add users for in-memor authentication
+		UserBuilder users = User.withDefaultPasswordEncoder();
+		
+		auth.inMemoryAuthentication()
+			.withUser(users.username("charity").password("love123").roles("ADMIN"))
+			.withUser(users.username("endure").password("love123").roles("DOCTOR"))
+			.withUser(users.username("crunchy").password("love123").roles("PROVIDER"));
 	}
 	
+	/*
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
@@ -45,4 +57,5 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 			.and()
 			.exceptionHandling().accessDeniedPage("/access-denied");
 	}
+	*/
 }
