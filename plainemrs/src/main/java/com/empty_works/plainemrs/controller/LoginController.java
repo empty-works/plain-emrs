@@ -9,7 +9,7 @@ public class LoginController {
 	@GetMapping("/show-login-page")
 	public String showLoginPage() {
 		
-		return "plain-login";
+		return "fancy-login";
 	}
 	
 	// Add request mapping for access denied

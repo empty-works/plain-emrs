@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
@@ -13,8 +15,7 @@
 	
 	<body>
 		<h3>Welcome! Please log in</h3>
-			<form action="${pageContext.request.contextPath}/authenticate-the-user" 
-				method="POST">	
+			<form action="${pageContext.request.contextPath}/authenticate-the-user" method="POST">	
 				
 				<!-- Check for login error -->
 				<c:if test="${param.test != null}"	>
