@@ -13,7 +13,7 @@
 	
 	<body>
 		<h3>Welcome! Please log in</h3>
-			<form:form action="${pageContext.request.contextPath}/authenticate-user" 
+			<form action="${pageContext.request.contextPath}/authenticate-the-user" 
 				method="POST">	
 				
 				<!-- Check for login error -->
@@ -31,6 +31,6 @@
 				
 				<input type="submit" value="Login" />
 				
-			</form:form>
+			</form>
 	</body>
 </html>

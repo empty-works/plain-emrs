@@ -17,8 +17,8 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// Add reference to security data source
 	
-	@Autowired
-	private DataSource securityDataSource;
+	//@Autowired
+	//private DataSource securityDataSource;
 	
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
@@ -33,8 +33,7 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		auth.inMemoryAuthentication()
 			.withUser(users.username("charity").password("love123").roles("ADMIN", "AUTHORIZED"))
-			.withUser(users.username("endure").password("love123").roles("DOCTOR", "AUTHORIZED"))
-			.withUser(users.username("crunchy").password("love123").roles("PROVIDER", "AUTHORIZED"))
+			.withUser(users.username("endure").password("love123").roles("ALLIED_MEDICAL_STAFF", "AUTHORIZED"))
 			.withUser(users.username("schmoe").password("love123").roles("AUTHORIZED"));
 	}
 	
@@ -42,11 +41,11 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 	protected void configure(HttpSecurity http) throws Exception {
 		
 		http.authorizeRequests()
+			.antMatchers("/").hasRole("AUTHORIZED")
 			.antMatchers("/systems/**").hasRole("ADMIN")
 			.antMatchers("/medical-staff/**").hasAnyRole("DOCTOR", "NURSE")
 			.antMatchers("/allied-staff/**").hasRole("ALLIED_MEDICAL_STAFF")
 			.antMatchers("/non-employees/**").hasAnyRole("PROVIDER", "GOVERNMENT", "FACILITY")
-			.antMatchers("/").hasRole("AUTHORIZED")
 			.and()
 			.formLogin()
 				.loginPage("/show-login-page") // show custom form at the request mapping "/show-login-page"
