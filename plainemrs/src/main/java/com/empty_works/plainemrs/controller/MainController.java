@@ -24,20 +24,20 @@ public class MainController {
 	@GetMapping("/medical-staff")
 	public String showMedicalStaff() {
 		
-		return "medicalStaff";
+		return "medical-staff";
 	}
 
 	// Add request mapping for allied staff
 	@GetMapping("/allied-staff")
 	public String showAlliedStaff() {
 		
-		return "alliedStaff";
+		return "allied-staff";
 	}
 
 	// Add request mapping for non-employees
 	@GetMapping("/non-employees")
 	public String showNonEmployees() {
 		
-		return "nonEmployees";
+		return "non-employees";
 	}
 }

@@ -15,7 +15,7 @@
 	
 	<body>
 		<h3>Welcome! Please log in</h3>
-			<form action="${pageContext.request.contextPath}/authenticate-the-user" method="POST">	
+			<form:form action="${pageContext.request.contextPath}/authenticate-the-user" method="POST">	
 				
 				<!-- Check for login error -->
 				<c:if test="${param.test != null}"	>
@@ -32,6 +32,6 @@
 				
 				<input type="submit" value="Login" />
 				
-			</form>
+			</form:form>
 	</body>
 </html>
