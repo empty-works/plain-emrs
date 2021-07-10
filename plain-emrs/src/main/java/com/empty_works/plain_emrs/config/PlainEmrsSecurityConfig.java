@@ -1,5 +1,7 @@
 package com.empty_works.plain_emrs.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -12,17 +14,24 @@ import org.springframework.security.core.userdetails.User.UserBuilder;
 @EnableWebSecurity
 public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 
+	// Add reference to security data source
+	private DataSource securityDataSource;
+
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
-		// Add our users for in-memory authentication
+		// Use JDBC authentication
+		auth.jdbcAuthentication().dataSource(securityDataSource);
 		
+		/*
+		// Add our users for in-memory authentication
 		UserBuilder users = User.withDefaultPasswordEncoder();
 		
 		auth.inMemoryAuthentication()
 			.withUser(users.username("charity").password("test123").roles("AUTHORIZED"))
 			.withUser(users.username("reveal").password("test123").roles("AUTHORIZED", "DOCTOR"))
 			.withUser(users.username("schmoe").password("test123").roles("AUTHORIZED", "ADMIN"));
+		*/
 	}
 
 	@Override
