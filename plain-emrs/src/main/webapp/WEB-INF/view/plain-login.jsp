@@ -1,10 +1,11 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<!doctype html>
 <html>
 
 <head>
-	<title>Custom Login Page</title>
+	<title>EMRS Login</title>
 	<style>
 		.failed {
 			color: red;
@@ -13,7 +14,8 @@
 </head>
 
 <body>
-	<h3>My Custom Login Page</h3>
+	<h3>EMRS Login</h3>
+	<h5>Please enter username and password.</h5>
 		<form:form action="${pageContext.request.contextPath }/authenticate-the-user"
 					method="POST">
 					
