@@ -14,7 +14,11 @@
 <p>
 	Systems admin page!
 	<br>
-	Admins!!!
+	<ul>
+		<li>Create User</li>
+		<li>Edit User</li>
+		<li>Delete User</li>
+	</ul>
 </p>
 
 <hr>
