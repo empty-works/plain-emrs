@@ -1,0 +1,16 @@
+@startuml
+!theme spacelab
+class PlainEmrsConfig {
+    env : Environment
+    logger : Logger 
+    resolveView : ViewResolver
+    securityDataSource() : DataSource
+    getIntProperty(String) : int
+}
+
+class PlainEmrsSecurityConfig {
+    securityDataSource : DataSource
+    configure(AuthenticationManagerBuilder) : void
+    configure(HttpSecurity) : void
+}
+@enduml

@@ -22,16 +22,6 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 		
 		// Use JDBC authentication
 		auth.jdbcAuthentication().dataSource(securityDataSource);
-		
-		/*
-		// Add our users for in-memory authentication
-		UserBuilder users = User.withDefaultPasswordEncoder();
-		
-		auth.inMemoryAuthentication()
-			.withUser(users.username("charity").password("test123").roles("AUTHORIZED"))
-			.withUser(users.username("reveal").password("test123").roles("AUTHORIZED", "DOCTOR"))
-			.withUser(users.username("schmoe").password("test123").roles("AUTHORIZED", "ADMIN"));
-		*/
 	}
 
 	@Override
