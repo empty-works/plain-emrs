@@ -13,6 +13,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.core.env.Environment;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.EnableWebMvc;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.mchange.v2.c3p0.ComboPooledDataSource;
@@ -21,7 +23,7 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 @EnableWebMvc // Gives same functionality as annotation-driven
 @ComponentScan(basePackages="com.empty_works.plain_emrs")
 @PropertySource("classpath:persistence-mysql.properties")
-public class PlainEmrsConfig {
+public class PlainEmrsConfig implements WebMvcConfigurer {
 	
 	// Set up variable to hold the properties
 	@Autowired
@@ -90,4 +92,11 @@ public class PlainEmrsConfig {
 		
 		return intPropVal;
 	}
+	
+	@Override
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+		registry
+		  .addResourceHandler("/resources/**")
+		  .addResourceLocations("/resources/"); 
+	}	
 }
