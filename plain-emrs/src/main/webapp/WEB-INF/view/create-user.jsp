@@ -9,5 +9,9 @@
 	
 	<body>
 		<h2>Create User</h2>	
+		
+		<hr>
+
+		<a href="${pageContext.request.contextPath}/systems">Back to Admin Systems</a>
 	</body>
 </html>

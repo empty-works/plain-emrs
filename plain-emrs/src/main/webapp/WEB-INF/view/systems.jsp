@@ -1,3 +1,6 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="security" uri="http://www.springframework.org/security/tags" %>
+
 <html>
 
 <head>
@@ -15,7 +18,7 @@
 	Systems admin page!
 	<br>
 	<ul>
-		<li>Create User</li>
+		<li><a href="${pageContext.request.contextPath}/create-user">Create User</a></li>
 		<li>Edit User</li>
 		<li>Delete User</li>
 	</ul>
