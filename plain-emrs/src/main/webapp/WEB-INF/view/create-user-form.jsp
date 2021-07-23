@@ -19,5 +19,18 @@
 	
 	<body>
 			
+		<h2>Create User</h2>
+		
+		<!-- Create User Form -->
+		<form:form action="${pageContext.request.contextPath}/create-user/process-user-creation" 
+				   modelAttribute="emrsUser">
+				   
+			<!-- Check for registration error -->
+			<c:if test="${registrationError != null}">
+				<i class="failed">${registrationError}</i>
+			</c:if>
+				
+		</form:form>
+
 	</body>
 </html>
