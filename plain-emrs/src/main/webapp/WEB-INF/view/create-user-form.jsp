@@ -1,5 +1,6 @@
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>  
+<%@ page import = "java.io.*,java.util.*, javax.servlet.*" %>
 
 <!doctype html>
 <html>
@@ -29,7 +30,25 @@
 			<c:if test="${registrationError != null}">
 				<i class="failed">${registrationError}</i>
 			</c:if>
+			
+			<hr>
+			
+			<!-- Username -->
+			<form:input path="userName" placeholder="username" />
 				
+			<hr>
+			
+			<form:password path="password"	placeholder="password" />
+			
+			<hr>
+			
+			<form:input path="emailAddress" placeholder="email address" />
+			
+			<hr>
+			
+			<!-- Create user button -->
+			<button type="submit" class="btn btn-primary">Create</button>
+
 		</form:form>
 
 	</body>
