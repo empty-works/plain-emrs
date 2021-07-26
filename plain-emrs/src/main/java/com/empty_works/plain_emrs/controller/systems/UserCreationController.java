@@ -57,6 +57,15 @@ public class UserCreationController {
 		String userName = theEmrsUser.getUserName();
 		logger.info("Processing user creation for: " + userName);
 		
+		// Form validation
+		if(theBindingResult.hasErrors()) {
+			
+			theModel.addAttribute("emrsUser", new EmrsUser());
+			theModel.addAttribute("registrationError", "User name/password can not be empty.");
+			
+			logger.warning("User name/password can not be empty.");
+		}
+		
 		return "create-user-confirmation";
 	}
 }
