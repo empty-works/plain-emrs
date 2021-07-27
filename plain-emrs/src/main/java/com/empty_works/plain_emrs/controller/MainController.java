@@ -39,4 +39,10 @@ public class MainController {
 		
 		return "non-employees";
 	}
+	
+	@GetMapping("/add-patient")
+	public String addPatient() {
+		
+		return "add-patient";
+	}
 }

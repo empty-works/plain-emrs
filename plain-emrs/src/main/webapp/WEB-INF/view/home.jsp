@@ -36,13 +36,12 @@
 
 	</security:authorize>
 	
-	<security:authorize access="hasRole('DOCTOR')">
+	<security:authorize access="hasAnyRole('ADMIN', 'DOCTOR', 'NURSE')">
 
 		<!-- Add a link to point to /medical-staff... this is for the medical staff-->
-		
+
 		<p>
-			<a href="${pageContext.request.contextPath}/medical-staff">Leadership Meeting</a>
-			(Only for medical staff)
+			<a href="${pageContext.request.contextPath}/add-patient">Add Patient</a>
 		</p>	
 		
 		<hr>
