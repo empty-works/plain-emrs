@@ -1,9 +1,13 @@
 package com.empty_works.plain_emrs.controller.systems;
 
+import java.util.List;
 import java.util.logging.Logger;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.AuthorityUtils;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.provisioning.UserDetailsManager;
@@ -64,8 +68,51 @@ public class UserCreationController {
 			theModel.addAttribute("registrationError", "User name/password can not be empty.");
 			
 			logger.warning("User name/password can not be empty.");
+
+			return "create-user-confirmation";
 		}
 		
-		return "create-user-confirmation";
+		// check the database if user already exists
+		boolean userExists = doesUserExist(userName);
+		
+		if (userExists) {
+			theModel.addAttribute("crmUser", new EmrsUser());
+			theModel.addAttribute("registrationError", "User name already exists.");
+
+			logger.warning("User name already exists.");
+			
+			return "create-user-confirmation";
+		}
+		
+		// encrypt the password
+        String encodedPassword = passwordEncoder.encode(theEmrsUser.getPassword());
+
+        // prepend the encoding algorithm id
+        encodedPassword = "{bcrypt}" + encodedPassword;
+                 
+		// give user default role of "employee"
+        List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_AUTHORIZED");
+
+        // create user object (from Spring Security framework)
+        User tempUser = new User(userName, encodedPassword, authorities);
+
+        // save user in the database
+        userDetailsManager.createUser(tempUser);		
+		
+        logger.info("Successfully created user: " + userName);
+        
+        return "create-user-confirmation";
+	}
+
+	private boolean doesUserExist(String userName) {
+		
+		logger.info("Checking if user exists: " + userName);
+		
+		// check the database if the user already exists
+		boolean exists = userDetailsManager.userExists(userName);
+		
+		logger.info("User: " + userName + ", exists: " + exists);
+		
+		return exists;
 	}
 }
