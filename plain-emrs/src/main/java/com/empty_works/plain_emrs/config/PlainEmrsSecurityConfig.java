@@ -47,4 +47,13 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 			.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
+	@Bean
+	public UserDetailsManager userDetailsManager() {
+		
+		JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager();
+		
+		jdbcUserDetailsManager.setDataSource(securityDataSource);
+		
+		return jdbcUserDetailsManager; 
+	}
 }
