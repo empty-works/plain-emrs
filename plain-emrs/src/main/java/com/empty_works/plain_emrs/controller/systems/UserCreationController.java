@@ -72,7 +72,7 @@ public class UserCreationController {
 			return "create-user-confirmation";
 		}
 		
-		// check the database if user already exists
+		// Check the database if user already exists
 		boolean userExists = doesUserExist(userName);
 		
 		if (userExists) {
@@ -84,19 +84,19 @@ public class UserCreationController {
 			return "create-user-confirmation";
 		}
 		
-		// encrypt the password
+		// Encrypt the password
         String encodedPassword = passwordEncoder.encode(theEmrsUser.getPassword());
 
-        // prepend the encoding algorithm id
+        // Prepend the encoding algorithm id
         encodedPassword = "{bcrypt}" + encodedPassword;
                  
-		// give user default role of "employee"
+		// Give user default role of "employee"
         List<GrantedAuthority> authorities = AuthorityUtils.createAuthorityList("ROLE_AUTHORIZED");
 
-        // create user object (from Spring Security framework)
+        // Create user object (from Spring Security framework)
         User tempUser = new User(userName, encodedPassword, authorities);
 
-        // save user in the database
+        // Save user in the database
         userDetailsManager.createUser(tempUser);		
 		
         logger.info("Successfully created user: " + userName);
@@ -108,7 +108,7 @@ public class UserCreationController {
 		
 		logger.info("Checking if user exists: " + userName);
 		
-		// check the database if the user already exists
+		// Check the database if the user already exists
 		boolean exists = userDetailsManager.userExists(userName);
 		
 		logger.info("User: " + userName + ", exists: " + exists);

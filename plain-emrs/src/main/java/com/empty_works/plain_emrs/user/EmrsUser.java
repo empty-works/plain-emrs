@@ -30,6 +30,10 @@ public class EmrsUser {
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
 	private boolean enabled;
+	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private String authority;
 
 	public EmrsUser() {
 		
@@ -81,5 +85,13 @@ public class EmrsUser {
 
 	public void setEnabled(boolean enabled) {
 		this.enabled = enabled;
+	}
+	
+	public String getAuthority() {
+		return authority;
+	}
+	
+	public void setAuthority(String authority) {
+		this.authority = authority;
 	}
 }
