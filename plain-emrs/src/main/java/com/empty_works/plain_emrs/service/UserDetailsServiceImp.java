@@ -1,4 +1,4 @@
-package com.empty_works.plain_emrs.model;
+package com.empty_works.plain_emrs.service;
 
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
