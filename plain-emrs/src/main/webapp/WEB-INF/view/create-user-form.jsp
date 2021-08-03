@@ -34,15 +34,19 @@
 			<hr>
 			
 			<!-- Username -->
-			<form:input path="userName" placeholder="username" />
+			<form:input path="userName" placeholder="Username" />
 				
 			<hr>
 			
-			<form:password path="password"	placeholder="password" />
+			<form:password path="password"	placeholder="Password" />
 			
 			<hr>
 			
-			<form:input path="emailAddress" placeholder="email address" />
+			<form:input path="emailAddress" placeholder="Email Address" />
+			
+			<hr>
+			
+			<form:input path="personId" placeholder="Person ID" />
 			
 			<hr>
 			

@@ -3,15 +3,15 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Create User</title>			
+		<title>Create Person</title>			
 		<meta charset="utf-8">
 	</head>
 	
 	<body>
-		<h2>Create User</h2>	
+		<h2>Create Person</h2>	
 		
 		<hr>
 
-		<a href="${pageContext.request.contextPath}/systems">Back to Admin Systems</a>
+		<a href="${pageContext.request.contextPath}/">Back to home page</a>
 	</body>
 </html>
