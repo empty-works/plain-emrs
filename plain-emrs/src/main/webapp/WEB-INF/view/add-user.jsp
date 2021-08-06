@@ -5,7 +5,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Create User</title>
+		<title>Add User</title>
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 		
@@ -20,10 +20,10 @@
 	
 	<body>
 			
-		<h2>Create User</h2>
+		<h2>Add User</h2>
 		
 		<!-- Create User Form -->
-		<form:form action="${pageContext.request.contextPath}/create-user/process-user-creation" 
+		<form:form action="${pageContext.request.contextPath}/user/process-add-user" 
 				   modelAttribute="emrsUser">
 				   
 			<!-- Check for registration error -->
@@ -33,25 +33,36 @@
 			
 			<hr>
 			
-			<!-- Username -->
-			<form:input path="userName" placeholder="Username" />
+			<form:input path="givenName" placeholder="Given Name" />
 				
 			<hr>
 			
-			<form:password path="password"	placeholder="Password" />
+			<form:input path="middleName" placeholder="Middle Name" />
 			
 			<hr>
 			
-			<form:input path="emailAddress" placeholder="Email Address" />
+			<form:input path="lastName" placeholder="Last Name" />
 			
 			<hr>
 			
-			<form:input path="personId" placeholder="Person ID" />
+			<form:input path="city" placeholder="City" />
 			
 			<hr>
 			
+			<form:input path="state" placeholder="State" />
+			
+			<hr>
+
+			<form:input path="country" placeholder="Country" />
+			
+			<hr>
+
+			<form:input path="phoneNumber" placeholder="Phone Number" />
+			
+			<hr>
+
 			<!-- Create user button -->
-			<button type="submit" class="btn btn-primary">Create</button>
+			<button type="submit" class="btn btn-primary">Add User</button>
 
 		</form:form>
 

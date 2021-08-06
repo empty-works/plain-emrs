@@ -26,7 +26,7 @@ import com.empty_works.plain_emrs.user.EmrsUser;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/add-user")
+@RequestMapping("/user")
 public class AddUserController {
 
 	@Autowired
