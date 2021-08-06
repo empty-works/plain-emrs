@@ -26,8 +26,8 @@ import com.empty_works.plain_emrs.user.EmrsUser;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("/create-user")
-public class UserCreationController {
+@RequestMapping("/add-user")
+public class AddUserController {
 
 	@Autowired
 	private UserDetailsManager userDetailsManager;
@@ -44,15 +44,15 @@ public class UserCreationController {
 		dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 	}	
 
-	@GetMapping("/show-create-user-form")
-	public String showCreateUserForm(Model theModel) {
+	@GetMapping("/show-add-user-form")
+	public String showAddUserForm(Model theModel) {
 		
 		theModel.addAttribute("emrsUser", new EmrsUser());
 		
-		return "create-user-form";
+		return "add-user";
 	}
 	
-	@PostMapping("/process-user-creation")
+	@PostMapping("/process-add-user")
 	public String processUserCreation(
 			@Valid @ModelAttribute("emrsUser") EmrsUser theEmrsUser, 
 			BindingResult theBindingResult, 
@@ -67,9 +67,9 @@ public class UserCreationController {
 			theModel.addAttribute("emrsUser", new EmrsUser());
 			theModel.addAttribute("registrationError", "User name/password can not be empty.");
 			
-			logger.warning("User name/password can not be empty.");
+			logger.warning("User name/password cannot be empty.");
 
-			return "create-user-confirmation";
+			return "add-user-confirmation";
 		}
 		
 		// Check the database if user already exists
@@ -81,7 +81,7 @@ public class UserCreationController {
 
 			logger.warning("User name already exists.");
 			
-			return "create-user-confirmation";
+			return "add-user-confirmation";
 		}
 		
 		// Encrypt the password
@@ -99,9 +99,9 @@ public class UserCreationController {
         // Save user in the database
         userDetailsManager.createUser(tempUser);		
 		
-        logger.info("Successfully created user: " + userName);
+        logger.info("Successfully added user: " + userName);
         
-        return "create-user-confirmation";
+        return "add-user-confirmation";
 	}
 
 	private boolean doesUserExist(String userName) {
