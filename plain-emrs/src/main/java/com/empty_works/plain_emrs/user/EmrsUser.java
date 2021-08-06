@@ -9,10 +9,6 @@ public class EmrsUser {
 
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")	
-	private int personId;
-
-	@NotNull(message="is required")
-	@Size(min=1, message="is required")	
 	private String userName;
 	
 	@NotNull(message="is required")
@@ -23,6 +19,7 @@ public class EmrsUser {
 	@Size(min=1, message="is required")
 	private String emailAddress;
 	
+
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
 	private Date createdOn;
@@ -34,19 +31,43 @@ public class EmrsUser {
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
 	private String authority;
+	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private String givenName;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private String middleName;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private String lastName;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private String city;
+	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private String state;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private String country;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private String phoneNumber;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private Date dateOfBirth;
 
 	public EmrsUser() {
 		
 	}
 
-	public int getPersonId() {
-		return personId;
-	}
-
-	public void setPersonId(int personId) {
-		this.personId = personId;
-	}
-	
 	public String getUserName() {
 		return userName;
 	}
@@ -93,5 +114,69 @@ public class EmrsUser {
 	
 	public void setAuthority(String authority) {
 		this.authority = authority;
+	}
+
+	public String getGivenName() {
+		return givenName;
+	}
+
+	public void setGivenName(String givenName) {
+		this.givenName = givenName;
+	}
+
+	public String getMiddleName() {
+		return middleName;
+	}
+
+	public void setMiddleName(String middleName) {
+		this.middleName = middleName;
+	}
+
+	public String getLastName() {
+		return lastName;
+	}
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+	}
+
+	public String getCity() {
+		return city;
+	}
+
+	public void setCity(String city) {
+		this.city = city;
+	}
+
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
+	public String getCountry() {
+		return country;
+	}
+
+	public void setCountry(String country) {
+		this.country = country;
+	}
+
+	public String getPhoneNumber() {
+		return phoneNumber;
+	}
+
+	public void setPhoneNumber(String phoneNumber) {
+		this.phoneNumber = phoneNumber;
+	}
+
+	public Date getDateOfBirth() {
+		return dateOfBirth;
+	}
+
+	public void setDateOfBirth(Date dateOfBirth) {
+		this.dateOfBirth = dateOfBirth;
 	}
 }
