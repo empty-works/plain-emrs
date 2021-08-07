@@ -19,7 +19,6 @@ public class EmrsUser {
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
 	private String emailAddress;
-	
 
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
