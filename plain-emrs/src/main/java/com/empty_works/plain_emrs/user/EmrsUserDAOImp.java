@@ -11,7 +11,7 @@ import org.springframework.stereotype.Repository;
 @Repository
 public class EmrsUserDAOImp implements EmrsUserDAO {
 	
-	@Autowired
+//	@Autowired
 	private SessionFactory sessionFactory;
 
 	@Override
@@ -45,6 +45,5 @@ public class EmrsUserDAOImp implements EmrsUserDAO {
 	public void deleteEmrsUser(int theId) {
 		
 		Session currentSession = sessionFactory.getCurrentSession();
-
 	}
 }

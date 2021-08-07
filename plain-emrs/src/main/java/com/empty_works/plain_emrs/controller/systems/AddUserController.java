@@ -69,7 +69,7 @@ public class AddUserController {
 			
 			logger.warning("User name/password cannot be empty.");
 
-			return "add-user-confirmation";
+			return "add-user";
 		}
 		
 		// Check the database if user already exists
@@ -81,7 +81,7 @@ public class AddUserController {
 
 			logger.warning("User name already exists.");
 			
-			return "add-user-confirmation";
+			return "add-user";
 		}
 		
 		// Encrypt the password

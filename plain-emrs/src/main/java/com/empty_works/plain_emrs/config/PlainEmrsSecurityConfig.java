@@ -38,7 +38,7 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 			.antMatchers("/non-employees/**").hasAnyRole("PROVIDER", "GOVERNMENT", "FACILITY")
 			.and()
 			.formLogin()
-				.loginPage("/show-login-page") // show custom form at the request mapping "/showMyLoginPage"
+				.loginPage("/show-login-page")
 				.loginProcessingUrl("/authenticate-the-user") // login form should POST data to this URL for processing (check user id and password)
 				.permitAll()// allow everyone to see login page. No need to be logged in.
 			.and()

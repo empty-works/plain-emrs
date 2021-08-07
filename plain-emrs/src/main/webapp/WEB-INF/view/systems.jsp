@@ -18,7 +18,7 @@
 	Systems admin page!
 	<br>
 	<ul>
-		<li><a href="${pageContext.request.contextPath}/create-user">Create User</a></li>
+		<li><a href="${pageContext.request.contextPath}/add-user">Add User</a></li>
 		<li>Edit User</li>
 		<li>Delete User</li>
 	</ul>
