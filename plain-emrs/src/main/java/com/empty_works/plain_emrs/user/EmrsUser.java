@@ -1,5 +1,6 @@
 package com.empty_works.plain_emrs.user;
 
+import org.springframework.format.annotation.DateTimeFormat;
 import java.util.Date;
 
 import jakarta.validation.constraints.NotNull;
@@ -62,6 +63,7 @@ public class EmrsUser {
 
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
+	@DateTimeFormat(pattern = "dd-MM-yyyy")
 	private Date dateOfBirth;
 
 	public EmrsUser() {

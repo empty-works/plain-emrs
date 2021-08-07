@@ -60,6 +60,10 @@
 			<form:input path="phoneNumber" placeholder="Phone Number" />
 			
 			<hr>
+			
+			<form:input path="dateOfBirth" placeholder="dd-MM-yyyy" />
+			
+			<hr>
 
 			<!-- Create user button -->
 			<button type="submit" class="btn btn-primary">Add User</button>
