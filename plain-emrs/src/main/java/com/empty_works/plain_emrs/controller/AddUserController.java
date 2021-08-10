@@ -1,5 +1,6 @@
-package com.empty_works.plain_emrs.controller.systems;
+package com.empty_works.plain_emrs.controller;
 
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -115,5 +116,10 @@ public class AddUserController {
 		logger.info("User: " + userName + ", exists: " + exists);
 		
 		return exists;
+	}
+	
+	private String hashBirthday(Date birthday) {
+		
+		return null;
 	}
 }
