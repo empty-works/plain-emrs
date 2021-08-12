@@ -33,35 +33,27 @@
 			
 			<hr>
 			
-			<form:input path="givenName" placeholder="Given Name" />
+			<form:input path="username" placeholder="Username" />
 				
 			<hr>
 			
-			<form:input path="middleName" placeholder="Middle Name" />
+			<form:password path="password" placeholder="Password" />
 			
 			<hr>
 			
-			<form:input path="lastName" placeholder="Last Name" />
+			<form:input path="emailAddress" placeholder="Email Address" />
 			
 			<hr>
 			
-			<form:input path="city" placeholder="City" />
+			<form:input path="authority" placeholder="Role (temporary. will be combobox)" />
 			
 			<hr>
 			
-			<form:input path="state" placeholder="State" />
-			
-			<hr>
-
-			<form:input path="country" placeholder="Country" />
+			<form:input path="patientId" placeholder="Patient ID, if patient (temporary)" />
 			
 			<hr>
 
-			<form:input path="phoneNumber" placeholder="Phone Number" />
-			
-			<hr>
-			
-			<form:input path="dateOfBirth" placeholder="dd-MM-yyyy" />
+			<form:input path="nonpatientId" placeholder="Employee ID, Provider ID etc. (temporary)" />
 			
 			<hr>
 

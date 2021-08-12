@@ -1,6 +1,5 @@
 package com.empty_works.plain_emrs.controller;
 
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Logger;
 
@@ -59,7 +58,6 @@ public class AddUserController {
 			BindingResult theBindingResult, 
 			Model theModel) {
 		
-		//TODO: automatically generate username and password based on given info like name, number etc.
 		String userName = theEmrsUser.getUserName();
 		logger.info("Processing user creation for: " + userName);
 		
@@ -116,10 +114,5 @@ public class AddUserController {
 		logger.info("User: " + userName + ", exists: " + exists);
 		
 		return exists;
-	}
-	
-	private String hashBirthday(Date birthday) {
-		
-		return null;
 	}
 }
