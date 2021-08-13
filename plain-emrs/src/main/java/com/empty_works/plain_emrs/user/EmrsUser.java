@@ -1,11 +1,23 @@
 package com.empty_works.plain_emrs.user;
 
+import java.util.Collection;
 import java.util.Date;
+
+import javax.persistence.Entity;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-public class EmrsUser {
+@Entity
+public class EmrsUser implements UserDetails {
+
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 1L;
 
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")	
@@ -29,7 +41,7 @@ public class EmrsUser {
 	
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
-	private String authority;
+	private Collection<? extends GrantedAuthority> authorities;
 	
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
@@ -38,6 +50,22 @@ public class EmrsUser {
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
 	private String nonpatientId;
+	
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private boolean isNonExpired;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private boolean isNonLocked;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private boolean isCredNonExpired;
+
+	@NotNull(message="is required")
+	@Size(min=1, message="is required")
+	private boolean isEnabled;
 
 	public EmrsUser() {
 		
@@ -83,12 +111,8 @@ public class EmrsUser {
 		this.enabled = enabled;
 	}
 	
-	public String getAuthority() {
-		return authority;
-	}
-	
-	public void setAuthority(String authority) {
-		this.authority = authority;
+	public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+		this.authorities = authorities;
 	}
 
 	public String getPatientId() {
@@ -105,5 +129,51 @@ public class EmrsUser {
 
 	public void setNonpatientId(String nonpatientId) {
 		this.nonpatientId = nonpatientId;
+	}
+	
+	public void setIsNonExpired(boolean isNonExpired) {
+		this.isNonExpired = isNonExpired;
+	}
+	
+	public void setIsNonLocked(boolean isNonLocked) {
+		this.isNonLocked = isNonLocked;
+	}
+	
+	public void setIsCredNonExpired(boolean isCredNonExpired) {
+		this.isCredNonExpired = isCredNonExpired;
+	}
+	
+	public void setIsEnabled(boolean isEnabled) {
+		this.isEnabled = isEnabled;
+	}
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return authorities;
+	}
+
+	@Override
+	public String getUsername() {
+		return userName;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		return isNonExpired;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		return isNonLocked;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		return isCredNonExpired;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		return isEnabled;
 	}
 }
