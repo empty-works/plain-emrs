@@ -21,7 +21,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import com.empty_works.plain_emrs.user.EmrsUser;
+import com.empty_works.plain_emrs.entity.EmrsUser;
 
 import jakarta.validation.Valid;
 

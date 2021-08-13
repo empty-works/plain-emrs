@@ -1,4 +1,4 @@
-package com.empty_works.plain_emrs.user;
+package com.empty_works.plain_emrs.entity;
 
 import java.util.Collection;
 import java.util.Date;
@@ -21,7 +21,7 @@ public class EmrsUser implements UserDetails {
 
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")	
-	private String userName;
+	private String username;
 	
 	@NotNull(message="is required")
 	@Size(min=1, message="is required")
@@ -72,11 +72,11 @@ public class EmrsUser implements UserDetails {
 	}
 
 	public String getUserName() {
-		return userName;
+		return username;
 	}
 	
-	public void setUserName(String userName) {
-		this.userName = userName;
+	public void setUserName(String username) {
+		this.username = username;
 	}
 	
 	public String getPassword() {
@@ -154,7 +154,7 @@ public class EmrsUser implements UserDetails {
 
 	@Override
 	public String getUsername() {
-		return userName;
+		return username;
 	}
 
 	@Override
