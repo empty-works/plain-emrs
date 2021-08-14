@@ -17,14 +17,17 @@ import org.springframework.security.provisioning.UserDetailsManager;
 public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// Add reference to security data source
+	//@Autowired
+	//private DataSource securityDataSource;
 	@Autowired
-	private DataSource securityDataSource;
+	private EmrsUserService
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		// Use JDBC authentication
-		auth.jdbcAuthentication().dataSource(securityDataSource);
+		//auth.jdbcAuthentication().dataSource(securityDataSource);
+		
 	}
 
 	@Override

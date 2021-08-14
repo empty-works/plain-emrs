@@ -6,7 +6,6 @@ import com.empty_works.plain_emrs.entity.EmrsUser;
 
 public interface EmrsUserDAO {
 
-
 	public List<EmrsUser> getEmrsUsers();
 	
 	public void saveEmrsUser(EmrsUser theEmrsUser);
