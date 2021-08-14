@@ -10,7 +10,7 @@ import com.empty_works.plain_emrs.dao.EmrsUserDAO;
 import com.empty_works.plain_emrs.entity.EmrsUser;
 
 @Service
-public class EmrsUserDetailService implements UserDetailsService {
+public class EmrsUserDetailsService implements UserDetailsService {
 	
 	@Autowired
 	EmrsUserDAO emrsUserDAO;

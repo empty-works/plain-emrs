@@ -9,30 +9,35 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.provisioning.UserDetailsManager;
+
+import com.empty_works.plain_emrs.service.EmrsUserDetailsService;
 
 @Configuration
 @EnableWebSecurity
 public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 
 	// Add reference to security data source
-	//@Autowired
-	//private DataSource securityDataSource;
 	@Autowired
-	private EmrsUserService
+	private DataSource securityDataSource;
+	@Autowired
+	private EmrsUserDetailsService emrsUserDetailsService;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		// Use JDBC authentication
 		//auth.jdbcAuthentication().dataSource(securityDataSource);
+		auth.userDetailsService(emrsUserDetailsService);
 		
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
+		http.userDetailsService(emrsUserDetailsService);
 		http.authorizeRequests()
 			.antMatchers("/").hasRole("AUTHORIZED")
 			.antMatchers("/systems/**").hasRole("ADMIN")
@@ -50,13 +55,16 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 			.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
+	@Override
+	protected UserDetailsService userDetailsService() {
+	    return emrsUserDetailsService;
+	}
+
 	@Bean
 	public UserDetailsManager userDetailsManager() {
 		
 		JdbcUserDetailsManager jdbcUserDetailsManager = new JdbcUserDetailsManager();
-		
 		jdbcUserDetailsManager.setDataSource(securityDataSource);
-		
 		return jdbcUserDetailsManager; 
 	}
 }
