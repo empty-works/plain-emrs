@@ -49,5 +49,4 @@ public class EmrsUserDAOImpl implements EmrsUserDAO {
 		theQuery.setParameter("username", username);
 		theQuery.executeUpdate();
 	}
-
 }
