@@ -22,22 +22,22 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 	// Add reference to security data source
 	@Autowired
 	private DataSource securityDataSource;
-	@Autowired
-	private EmrsUserDetailsService emrsUserDetailsService;
+	//@Autowired
+	//private EmrsUserDetailsService emrsUserDetailsService;
 
 	@Override
 	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
 		
 		// Use JDBC authentication
-		//auth.jdbcAuthentication().dataSource(securityDataSource);
-		auth.userDetailsService(emrsUserDetailsService);
+		auth.jdbcAuthentication().dataSource(securityDataSource);
+		//auth.userDetailsService(emrsUserDetailsService);
 		
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		
-		http.userDetailsService(emrsUserDetailsService);
+		//http.userDetailsService(emrsUserDetailsService);
 		http.authorizeRequests()
 			.antMatchers("/").hasRole("AUTHORIZED")
 			.antMatchers("/systems/**").hasRole("ADMIN")
@@ -55,10 +55,12 @@ public class PlainEmrsSecurityConfig extends WebSecurityConfigurerAdapter {
 			.exceptionHandling().accessDeniedPage("/access-denied");
 	}
 
+	/*
 	@Override
 	protected UserDetailsService userDetailsService() {
 	    return emrsUserDetailsService;
 	}
+	*/
 
 	@Bean
 	public UserDetailsManager userDetailsManager() {

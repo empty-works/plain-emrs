@@ -25,7 +25,7 @@ import com.empty_works.plain_emrs.entity.EmrsUser;
 
 import jakarta.validation.Valid;
 
-@Controller
+//@Controller
 @RequestMapping("/user")
 public class AddUserController {
 
@@ -58,6 +58,7 @@ public class AddUserController {
 			BindingResult theBindingResult, 
 			Model theModel) {
 		
+		/*
 		String userName = theEmrsUser.getUserName();
 		logger.info("Processing user creation for: " + userName);
 		
@@ -102,6 +103,8 @@ public class AddUserController {
         logger.info("Successfully added user: " + userName);
         
         return "add-user-confirmation";
+        */
+		return null;
 	}
 
 	private boolean doesUserExist(String userName) {
