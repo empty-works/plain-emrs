@@ -1,4 +1,4 @@
-package com.empty_works.plain_emrs.entity;
+package com.empty_works.plain_emrs.user;
 
 import java.util.Collection;
 import java.util.Date;
@@ -11,8 +11,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 
-@Entity
-public class EmrsUser implements UserDetails {
+public class EmrsUser {
 
 	/**
 	 * 
@@ -145,35 +144,5 @@ public class EmrsUser implements UserDetails {
 	
 	public void setIsEnabled(boolean isEnabled) {
 		this.isEnabled = isEnabled;
-	}
-
-	@Override
-	public Collection<? extends GrantedAuthority> getAuthorities() {
-		return authorities;
-	}
-
-	@Override
-	public String getUsername() {
-		return username;
-	}
-
-	@Override
-	public boolean isAccountNonExpired() {
-		return isNonExpired;
-	}
-
-	@Override
-	public boolean isAccountNonLocked() {
-		return isNonLocked;
-	}
-
-	@Override
-	public boolean isCredentialsNonExpired() {
-		return isCredNonExpired;
-	}
-
-	@Override
-	public boolean isEnabled() {
-		return isEnabled;
 	}
 }
